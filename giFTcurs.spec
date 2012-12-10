@@ -1,22 +1,17 @@
-%define name giFTcurs
-%define version 0.6.2
-%define rel 7
-
-Name: %{name}
+Name: giFTcurs
 Summary: Cursed frontend to the giFT daemon
-Version: %{version}
-Release: %mkrel %{rel}
+Version: 0.6.2
+Release: 8
 Source:  http://savannah.nongnu.org/download/giftcurs/%name-%version.tar.bz2
 Source1: %{name}-icon-16.png
 Source2: %{name}-icon-32.png
 Source3: %{name}-icon-48.png
 URL: http://www.nongnu.org/giftcurs/
 Group: Networking/Other
-BuildRoot: %{_tmppath}/%{name}-buildroot
 License: GPL
 BuildRequires:	glib2-devel
 BuildRequires:	gpm-devel
-BuildRequires:	libncursesw-devel
+BuildRequires:	pkgconfig(ncursesw)
 Suggests: gift
 # It doesn't not requires giFT to run 'cause it can connect to another
 # host
@@ -27,8 +22,6 @@ described as "seriously slick". It won't work that well without giFT, which
 you should have already.
 
 %prep
-rm -fr %{buildroot}
-
 %setup -q
 
 %build
@@ -61,9 +54,6 @@ Icon=%{name}
 Terminal=true
 EOF
 
-%clean
-rm -fr %{buildroot}
-
 %files -f %{name}.lang
 %defattr(-,root,root,0755)
 %doc README COPYING NEWS AUTHORS ChangeLog TODO ABOUT-NLS
@@ -75,3 +65,20 @@ rm -fr %{buildroot}
 %{_mandir}/man1/giFTcurs.1*
 %{_mandir}/man5/giFTcurs.conf.5*
 
+
+
+%changelog
+* Fri Aug 12 2011 Andrey Bondrov <abondrov@mandriva.org> 0.6.2-7mdv2012.0
++ Revision: 694112
+- imported package giFTcurs
+
+
+* Fri Apr 12 2011 Andrey Bondrov <bondrov@math.dvgu.ru> 0.6.2-7mdv2010.2
+- Port to 2011
+- Little spec clean up
+
+* Sat Jan 19 2008 Anssi Hannula <anssi@zarb.org> 0.6.2-6plf2008.1
+- XDG menu
+- suggests gift instead of requiring it
+- buildrequires gpm-devel
+- build with ncursesw
