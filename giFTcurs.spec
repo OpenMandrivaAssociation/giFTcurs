@@ -1,7 +1,7 @@
 Summary:	Cursed frontend to the giFT daemon
 Name:		giFTcurs
 Version:	0.6.2
-Release:	9
+Release:	10
 License:	GPLv2+
 Group:		Networking/Other
 Url:		http://www.nongnu.org/giftcurs/
