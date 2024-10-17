@@ -4,7 +4,7 @@ Version:	0.6.2
 Release:	10
 License:	GPLv2+
 Group:		Networking/Other
-Url:		http://www.nongnu.org/giftcurs/
+Url:		https://www.nongnu.org/giftcurs/
 Source0:	http://savannah.nongnu.org/download/giftcurs/%name-%version.tar.bz2
 Source1:	%{name}-icon-16.png
 Source2:	%{name}-icon-32.png
